@@ -86,7 +86,7 @@ export class BaseConfig {
  * Used to normalize keys of mixed array and dot-separated string to a single array of undotted strings
  * @param  {string|Array<keys>} keys    (dot-separated) string(s) or array of keys
  * @param  {Array}              ...rest Rest of the arguments
- * @return {Array}              that    The key normalized to an array of strings
+ * @return {Array}              that    The key normalized to an array of simple strings
  */
 export function normalizeKey(key, ...rest) {
   /*
@@ -103,10 +103,10 @@ export function normalizeKey(key, ...rest) {
 
 /**
  * Fetches value from (nested) object with a normalized key
- * @param  {Object}             data    The data to fetch data from
- * @param  {string|Array<keys>} keys    (dot-separated) string(s) or array of keys
- * @param  {Array<key>}              ...rest Rest of the arguments
- * @return {any}                that    The retrieved value from the data
+ * @param  {Object}               data    The data to fetch data from
+ * @param  {string|Array<string>} keys    normalized key = string or array of simple keys
+ * @param  {Array<string>}        ...rest Rest of the arguments
+ * @return {any}                  that    The retrieved value from the data
  */
 export function fetchFrom(data, key, ...rest) {
   /*
